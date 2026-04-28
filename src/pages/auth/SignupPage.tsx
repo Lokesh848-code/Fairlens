@@ -10,18 +10,54 @@ import { Check, Info } from "lucide-react";
 
 export default function SignupPage() {
   const [isLoading, setIsLoading] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [organization, setOrganization] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
-    // Simulate signup
-    setTimeout(() => {
-      setIsLoading(false);
-      toast.success("Account created successfully. Welcome aboard!");
+
+    try {
+      // Register the user
+      const registerResponse = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password, firstName, lastName, organization })
+      });
+
+      const registerData = await registerResponse.json();
+
+      if (!registerResponse.ok) {
+        throw new Error(registerData.error || "Registration failed");
+      }
+
+      // Auto-login after successful registration
+      const loginResponse = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+      });
+
+      const loginData = await loginResponse.json();
+
+      if (!loginResponse.ok) {
+        throw new Error(loginData.error || "Auto-login failed");
+      }
+
+      // Store user data in localStorage for session
+      localStorage.setItem("user", JSON.stringify(loginData.user));
+
+      toast.success(`Welcome aboard${loginData.user.firstName ? ', ' + loginData.user.firstName : ''}! Your account has been created.`);
       navigate("/dashboard");
-    }, 1500);
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Signup failed");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -33,19 +69,23 @@ export default function SignupPage() {
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label htmlFor="firstName">First Name</Label>
-            <Input 
-              id="firstName" 
-              placeholder="Erik" 
-              required 
+            <Input
+              id="firstName"
+              placeholder="Erik"
+              required
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
               className="h-11 bg-white border-slate-200"
             />
           </div>
           <div className="space-y-2">
             <Label htmlFor="lastName">Last Name</Label>
-            <Input 
-              id="lastName" 
-              placeholder="Thorsen" 
-              required 
+            <Input
+              id="lastName"
+              placeholder="Thorsen"
+              required
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
               className="h-11 bg-white border-slate-200"
             />
           </div>
@@ -53,32 +93,39 @@ export default function SignupPage() {
         
         <div className="space-y-2">
           <Label htmlFor="organization">Organization Name</Label>
-          <Input 
-            id="organization" 
-            placeholder="EthicalAI Systems Inc." 
-            required 
+          <Input
+            id="organization"
+            placeholder="EthicalAI Systems Inc."
+            required
+            value={organization}
+            onChange={(e) => setOrganization(e.target.value)}
             className="h-11 bg-white border-slate-200"
           />
         </div>
         
         <div className="space-y-2">
           <Label htmlFor="email">Work Email</Label>
-          <Input 
-            id="email" 
-            type="email" 
-            placeholder="name@company.com" 
-            required 
+          <Input
+            id="email"
+            type="email"
+            placeholder="name@company.com"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="h-11 bg-white border-slate-200"
           />
         </div>
         
         <div className="space-y-2">
           <Label htmlFor="password">Password</Label>
-          <Input 
-            id="password" 
-            type="password" 
-            placeholder="Min. 8 characters" 
-            required 
+          <Input
+            id="password"
+            type="password"
+            placeholder="Min. 8 characters"
+            required
+            minLength={8}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             className="h-11 bg-white border-slate-200"
           />
           <div className="flex gap-4 mt-2">

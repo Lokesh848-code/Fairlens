@@ -12,18 +12,37 @@ import { Eye, EyeOff, Github, Chrome } from "lucide-react";
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
-    // Simulate login
-    setTimeout(() => {
-      setIsLoading(false);
-      toast.success("Welcome back to FairLens AI");
+
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Login failed");
+      }
+
+      // Store user data in localStorage for session
+      localStorage.setItem("user", JSON.stringify(data.user));
+
+      toast.success(`Welcome back${data.user.firstName ? ', ' + data.user.firstName : ''}!`);
       navigate("/dashboard");
-    }, 1500);
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Login failed");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -34,11 +53,13 @@ export default function LoginPage() {
       <form onSubmit={handleLogin} className="space-y-5">
         <div className="space-y-2">
           <Label htmlFor="email">Work Email</Label>
-          <Input 
-            id="email" 
-            type="email" 
-            placeholder="name@company.com" 
-            required 
+          <Input
+            id="email"
+            type="email"
+            placeholder="name@company.com"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="h-11 bg-white border-slate-200 focus:ring-primary/20"
           />
         </div>
@@ -49,11 +70,13 @@ export default function LoginPage() {
             <a href="#" className="text-xs font-bold text-primary hover:underline">Forgot?</a>
           </div>
           <div className="relative">
-            <Input 
-              id="password" 
-              type={showPassword ? "text" : "password"} 
-              placeholder="••••••••" 
-              required 
+            <Input
+              id="password"
+              type={showPassword ? "text" : "password"}
+              placeholder="••••••••"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               className="h-11 pr-10 bg-white border-slate-200 focus:ring-primary/20"
             />
             <button
