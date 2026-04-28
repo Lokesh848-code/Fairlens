@@ -1,0 +1,26 @@
+id,applicant_name,gender,age,race,income,credit_score,loan_amount,loan_term,zip_code,employment_type,approved
+1,John Carter,Male,45,White,85000,740,25000,36,90210,Full-time,1
+2,Mary Johnson,Female,32,Black,42000,620,15000,24,10001,Full-time,0
+3,Robert Smith,Male,28,White,55000,700,20000,36,90211,Full-time,1
+4,Lisa Davis,Female,51,Black,38000,580,10000,12,10025,Part-time,0
+5,James Wilson,Male,39,White,72000,720,30000,48,90210,Full-time,1
+6,Patricia Garcia,Female,27,Hispanic,35000,600,8000,12,10001,Contract,0
+7,Michael Brown,Male,44,White,90000,760,35000,48,90211,Full-time,1
+8,Linda Martinez,Female,36,Hispanic,48000,650,18000,24,10025,Full-time,0
+9,William Anderson,Male,33,Asian,62000,710,22000,36,94102,Full-time,1
+10,Elizabeth Taylor,Female,29,Asian,58000,690,20000,24,94103,Full-time,1
+11,David Thomas,Male,47,White,95000,780,40000,48,90210,Full-time,1
+12,Jennifer Jackson,Female,41,Black,45000,610,12000,24,10001,Part-time,0
+13,Richard White,Male,35,White,68000,730,28000,36,90211,Full-time,1
+14,Susan Harris,Female,30,Hispanic,40000,630,10000,12,10025,Contract,0
+15,Charles Martin,Male,52,White,110000,800,50000,48,90210,Full-time,1
+16,Karen Thompson,Female,38,Black,50000,640,15000,24,10001,Full-time,0
+17,Joseph Robinson,Male,26,Asian,48000,680,16000,24,94102,Full-time,1
+18,Nancy Clark,Female,34,White,65000,710,24000,36,90211,Full-time,1
+19,Thomas Lewis,Male,43,Black,55000,650,18000,24,10001,Full-time,0
+20,Sandra Walker,Female,31,Hispanic,42000,610,12000,12,10025,Part-time,0
+21,Daniel Hall,Male,37,White,75000,740,32000,36,90210,Full-time,1
+22,Betty Allen,Female,46,Black,47000,600,14000,24,10001,Part-time,0
+23,Mark Young,Male,29,Asian,60000,700,20000,24,94103,Full-time,1
+24,Margaret King,Female,40,White,70000,720,26000,36,90211,Full-time,1
+25,Steven Wright,Male,34,Hispanic,52000,660,16000,24,10025,Full-time,0

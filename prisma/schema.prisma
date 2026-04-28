@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Model {
+  id          String   @id @default(uuid())
+  name        String
+  description String?
+  version     String
+  type        String   // e.g., "Classification", "Regression"
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  audits      Audit[]
+}
+
+model Audit {
+  id                String   @id @default(uuid())
+  modelId           String
+  model             Model    @relation(fields: [modelId], references: [id])
+  timestamp         DateTime @default(now())
+  fairnessScore     Float
+  accuracyScore     Float
+  disparateImpact   Float
+  statisticalParity Float
+  status            String   // "PASSED", "FAILED", "RESOLVED"
+  rawMetrics        String   // JSON string of all metrics
+  recommendations   Recommendation[]
+}
+
+model Recommendation {
+  id                 String   @id @default(uuid())
+  auditId            String
+  audit              Audit    @relation(fields: [auditId], references: [id])
+  title              String
+  description        String
+  impact             String   // "High", "Medium", "Low"
+  gain               String   // e.g., "+15% Parity"
+  type               String   // "Pre-processing", etc.
+  implementationCode String?
+  createdAt          DateTime @default(now())
+}

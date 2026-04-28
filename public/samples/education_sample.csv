@@ -1,0 +1,26 @@
+id,student_name,gender,age,race,gpa,sat_score,zip_code,extracurriculars,household_income,legacy,admitted
+1,Alice Johnson,Female,18,White,3.9,1480,90210,8,180000,Yes,1
+2,Bob Smith,Male,17,Black,3.4,1200,10001,3,42000,No,0
+3,Carol Williams,Female,18,Asian,3.8,1450,94102,6,95000,No,1
+4,David Brown,Male,19,White,3.7,1420,90211,7,150000,Yes,1
+5,Eva Martinez,Female,17,Hispanic,3.2,1100,10025,2,35000,No,0
+6,Frank Lee,Male,18,Asian,3.6,1380,94103,5,88000,No,1
+7,Grace Kim,Female,18,White,3.9,1500,90210,9,200000,Yes,1
+8,Henry Davis,Male,17,Black,3.1,1050,10001,2,38000,No,0
+9,Iris Chen,Female,18,Asian,3.8,1460,94102,7,92000,No,1
+10,Jack Wilson,Male,19,White,3.5,1350,90211,5,120000,Yes,1
+11,Karen Moore,Female,17,Black,3.3,1150,10025,3,40000,No,0
+12,Leo Garcia,Male,18,Hispanic,3.0,1020,10001,1,30000,No,0
+13,Mia Thompson,Female,18,White,3.8,1440,90210,8,170000,Yes,1
+14,Nathan White,Male,17,White,3.6,1400,90211,6,130000,No,1
+15,Olivia Harris,Female,18,Black,3.2,1120,10001,2,45000,No,0
+16,Paul Clark,Male,19,White,3.7,1430,90210,7,160000,Yes,1
+17,Quincy Adams,Male,17,Hispanic,2.9,980,10025,1,28000,No,0
+18,Rachel Lewis,Female,18,Asian,3.5,1360,94102,5,85000,No,1
+19,Sam Rodriguez,Male,17,Hispanic,3.1,1080,10025,2,32000,No,0
+20,Tina Walker,Female,18,Black,3.3,1180,10001,3,48000,No,0
+21,Uma Patel,Female,18,Asian,3.7,1410,94103,6,90000,No,1
+22,Victor Hall,Male,19,White,3.4,1300,90211,4,110000,No,1
+23,Wendy Young,Female,17,Black,3.0,1000,10001,1,35000,No,0
+24,Xavier King,Male,18,White,3.8,1470,90210,8,175000,Yes,1
+25,Yara Scott,Female,17,Hispanic,3.1,1060,10025,2,33000,No,0

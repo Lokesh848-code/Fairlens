@@ -1,0 +1,26 @@
+id,patient_name,gender,age,race,pre_existing_condition,insurance_type,zip_code,income,severity_score,priority
+1,John Carter,Male,65,White,Yes,Private,90210,85000,7,1
+2,Mary Johnson,Female,34,Black,No,Medicaid,10001,28000,3,0
+3,Robert Smith,Male,72,White,Yes,Medicare,90211,62000,8,1
+4,Lisa Davis,Female,28,Black,No,Uninsured,10025,22000,2,0
+5,James Wilson,Male,55,White,No,Private,90210,95000,5,1
+6,Patricia Garcia,Female,41,Hispanic,Yes,Medicaid,10001,32000,6,1
+7,Michael Brown,Male,68,White,Yes,Medicare,90211,70000,9,1
+8,Linda Martinez,Female,25,Hispanic,No,Uninsured,10025,18000,2,0
+9,William Anderson,Male,48,Asian,No,Private,94102,88000,4,1
+10,Elizabeth Taylor,Female,59,Asian,Yes,Private,94103,76000,7,1
+11,David Thomas,Male,73,White,Yes,Medicare,90210,55000,9,1
+12,Jennifer Jackson,Female,37,Black,Yes,Medicaid,10001,30000,5,0
+13,Richard White,Male,50,White,No,Private,90211,92000,4,1
+14,Susan Harris,Female,31,Hispanic,No,Uninsured,10025,20000,2,0
+15,Charles Martin,Male,62,White,Yes,Medicare,90210,48000,7,1
+16,Karen Thompson,Female,44,Black,Yes,Medicaid,10001,26000,6,0
+17,Joseph Robinson,Male,29,Asian,No,Private,94102,72000,3,1
+18,Nancy Clark,Female,56,White,Yes,Private,90211,82000,6,1
+19,Thomas Lewis,Male,39,Black,No,Medicaid,10001,34000,3,0
+20,Sandra Walker,Female,52,Hispanic,Yes,Uninsured,10025,24000,5,0
+21,Daniel Hall,Male,67,White,Yes,Medicare,90210,58000,8,1
+22,Betty Allen,Female,33,Black,No,Medicaid,10001,29000,3,0
+23,Mark Young,Male,46,Asian,No,Private,94103,80000,4,1
+24,Margaret King,Female,61,White,Yes,Medicare,90211,52000,7,1
+25,Steven Wright,Male,36,Hispanic,No,Uninsured,10025,21000,2,0
